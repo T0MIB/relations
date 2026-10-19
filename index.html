@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Selainpohjainen ihmissuhdekartta.">
+  <title>Ihmissuhdekartta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">⌘</span> Ihmissuhdekartta</div>
+    <span class="privacy">Tiedot tallennetaan vain tähän selaimeen.</span>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Ketkä ovat tärkeitä ihmisiäsi?</h1>
+      <p>Vastaa jokaiseen väittämään lyhyesti nimellä, esimerkiksi “äiti”. Kartta näyttää yhteydet muodossa Minä → rooli → henkilö.</p>
+    </section>
+
+    <section class="workspace" aria-label="Ihmissuhdekartan työtila">
+      <section class="card question-card" aria-labelledby="question">
+        <div class="eyebrow" id="counter">Väittämä 1 / 13</div>
+        <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+        <h2 id="question"></h2>
+        <label for="answer">Kuka tai mikä rooli?</label>
+        <input id="answer" type="text" maxlength="60" autocomplete="off" list="answer-suggestions" placeholder="Esimerkiksi äiti" />
+        <datalist id="answer-suggestions"></datalist>
+        <div class="answer-history" id="answer-history" hidden>
+          <p>Valitse aiempi vastaus</p>
+          <div id="previous-answers"></div>
+        </div>
+        <div class="navigation">
+          <button class="button secondary" id="previous" type="button">Edellinen</button>
+          <button class="button primary" id="next" type="button">Seuraava</button>
+        </div>
+      </section>
+
+      <section class="card map-card" aria-labelledby="map-title">
+        <div class="map-head">
+          <div><h2 id="map-title">Sinun ihmissuhdekarttasi</h2><p>Minä → rooli → henkilö. Valitse rooli siirtyäksesi vastaukseen.</p></div>
+          <span class="map-status" id="map-status">Ei vastauksia</span>
+        </div>
+        <div class="map-wrap"><div id="map" aria-live="polite"></div></div>
+        <div class="role-list">
+          <h3 id="roles-title">Valittu rooli</h3>
+          <div id="roles"><span class="role empty">Vastaa väittämään nähdäksesi yhteydet.</span></div>
+        </div>
+      </section>
+    </section>
+    <div class="footer-actions"><button class="button secondary reset" id="reset" type="button">Tyhjennä kaikki vastaukset</button></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
